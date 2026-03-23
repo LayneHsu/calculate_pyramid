@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>金字塔建仓计算器</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="page-header">
+      <h1>金字塔建仓计算器</h1>
+      <p class="lede">下跌金字塔 (左侧) 与上涨金字塔 (右侧), 逻辑与本地 Python 脚本一致, 计算在浏览器内完成.</p>
+    </header>
+
+    <main class="layout">
+      <section class="card panel-input" aria-labelledby="input-heading">
+        <h2 id="input-heading">参数</h2>
+        <form class="form-grid" onsubmit="return false;">
+          <label class="field">
+            <span class="label">当前价格</span>
+            <input id="currentPrice" type="number" inputmode="decimal" min="0" step="any" value="980" />
+          </label>
+          <label class="field">
+            <span class="label">总资金</span>
+            <input id="totalCapital" type="number" inputmode="decimal" min="0" step="any" value="100000" />
+          </label>
+          <label class="field">
+            <span class="label">下跌步长 <small>(默认 0.03 即 3%)</small></span>
+            <input id="downStep" type="number" inputmode="decimal" min="0" step="any" placeholder="0.03" />
+          </label>
+          <label class="field">
+            <span class="label">上涨步长 <small>(默认 0.02 即 2%)</small></span>
+            <input id="upStep" type="number" inputmode="decimal" min="0" step="any" placeholder="0.02" />
+          </label>
+        </form>
+        <p id="globalError" class="alert alert-error" role="alert" hidden></p>
+      </section>
+
+      <div class="results">
+        <section id="downSection" class="card panel-result" aria-labelledby="down-heading">
+          <div class="panel-result__head">
+            <h2 id="down-heading">下跌金字塔布局</h2>
+            <p id="downInitialHint" class="hint"></p>
+          </div>
+          <p class="alert" data-error hidden></p>
+          <div class="table-wrap">
+            <table id="downTable">
+              <thead>
+                <tr>
+                  <th scope="col">阶</th>
+                  <th scope="col">目标价</th>
+                  <th scope="col">投入资金</th>
+                  <th scope="col">占比</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="upSection" class="card panel-result" aria-labelledby="up-heading">
+          <div class="panel-result__head">
+            <h2 id="up-heading">上涨金字塔加码</h2>
+            <p id="upInitialHint" class="hint"></p>
+          </div>
+          <p class="alert" data-error hidden></p>
+          <div class="table-wrap">
+            <table id="upTable">
+              <thead>
+                <tr>
+                  <th scope="col">阶</th>
+                  <th scope="col">目标价</th>
+                  <th scope="col">投入资金</th>
+                  <th scope="col">占比</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="page-footer">
+      <p>仅供个人辅助计算, 不构成投资建议.</p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
