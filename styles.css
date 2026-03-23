@@ -80,6 +80,17 @@ body {
   }
 }
 
+/* 档位数选择占满整行 (宽屏时跨两列) */
+.field-full {
+  grid-column: 1 / -1;
+}
+
+.field-hint {
+  margin: 0.25rem 0 0;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
 .field {
   display: flex;
   flex-direction: column;
@@ -107,6 +118,21 @@ input[type="number"] {
 }
 
 input[type="number"]:focus {
+  outline: 2px solid var(--accent-down);
+  outline-offset: 1px;
+}
+
+select {
+  width: 100%;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 1rem;
+}
+
+select:focus {
   outline: 2px solid var(--accent-down);
   outline-offset: 1px;
 }

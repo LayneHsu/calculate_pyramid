@@ -9,13 +9,22 @@
   <body>
     <header class="page-header">
       <h1>金字塔建仓计算器</h1>
-      <p class="lede">下跌金字塔 (左侧) 与上涨金字塔 (右侧), 逻辑与本地 Python 脚本一致, 计算在浏览器内完成.</p>
+      <p class="lede">下跌金字塔 (左侧) 与上涨金字塔 (右侧); 可选 3/4/5 档, 资金按 10 份自动分配; 与 <code>calculate_pyramid.py</code> 一致, 计算在浏览器内完成.</p>
     </header>
 
     <main class="layout">
       <section class="card panel-input" aria-labelledby="input-heading">
         <h2 id="input-heading">参数</h2>
         <form class="form-grid" onsubmit="return false;">
+          <label class="field field-full">
+            <span class="label">档位数 <small>(资金按 10 份比例自动分配)</small></span>
+            <select id="tierCount" aria-describedby="tierRatioHint">
+              <option value="3">3 档</option>
+              <option value="4" selected>4 档</option>
+              <option value="5">5 档</option>
+            </select>
+            <p id="tierRatioHint" class="field-hint" aria-live="polite"></p>
+          </label>
           <label class="field">
             <span class="label">当前价格</span>
             <input id="currentPrice" type="number" inputmode="decimal" min="0" step="any" value="980" />
