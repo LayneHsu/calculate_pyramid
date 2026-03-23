@@ -62,9 +62,9 @@ def calculate_up_pyramid(
         )
 
 
-# 示例：假设你有 10 万资金，当前金价 980 元
+# 示例：假设你有 10 万资金，当前金价 1000 元
 total_money = 100_000
-current_gold_price = 980
+current_gold_price = 1000
 
 calculate_down_pyramid(current_gold_price, total_money)
 calculate_up_pyramid(current_gold_price, total_money)
